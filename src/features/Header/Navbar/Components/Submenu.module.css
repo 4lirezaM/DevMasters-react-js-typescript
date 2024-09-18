@@ -1,0 +1,4 @@
+.noActiveBg:active {
+  background-color: transparent !important;
+  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
+}

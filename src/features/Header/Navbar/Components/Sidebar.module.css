@@ -1,0 +1,13 @@
+.Sidebar {
+  box-shadow: 0px 0px 23px 0px rgba(0, 0, 0, 0.154);
+}
+/* WebKit browsers */
+.Sidebar::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+/* Firefox */
+.Sidebar {
+  scrollbar-width: none; /* Hide scrollbar */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}

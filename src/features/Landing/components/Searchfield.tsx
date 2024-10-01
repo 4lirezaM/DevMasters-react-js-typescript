@@ -6,7 +6,9 @@ function Searchfield() {
   const [searchQuery, setSearchQuery] = useState("");
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    navigate(`/search`);
+    if (searchQuery) {
+      navigate(`/search/${searchQuery}`);
+    }
   }
   return (
     <div className="mt-10 w-full px-2 sm:px-10 md:w-[500px] md:px-0">

@@ -1,4 +1,5 @@
 import daisyui from "daisyui";
+import lineClamp from "@tailwindcss/line-clamp";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -20,7 +21,7 @@ export default {
       },
     },
   },
-  plugins: [daisyui],
+  plugins: [daisyui, lineClamp],
   corePlugins: {
     fontFamily: false,
   },

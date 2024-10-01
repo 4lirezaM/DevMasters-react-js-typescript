@@ -3,6 +3,7 @@ import { useReducer } from "react";
 import { createContext } from "react";
 import { fetchMe, UserInfo } from "../services/auth/Login";
 import getLocalStorageItem from "../utils/getLocalStorageItem";
+import { useCookies } from "react-cookie";
 
 // types
 
@@ -52,10 +53,18 @@ export default function AppProvider({ children }: { children: ReactNode }) {
     reducer,
     initialState,
   );
+
+  const [cookies, setCookie] = useCookies(["userToken"]);
   const toggledarkMode = () => {
     dispatch({ type: "TOGGLE_DARK_MODE" });
   };
   const setUserToken = (token: string) => {
+    setCookie("userToken", token, {
+      path: "/",
+      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      // secure: true,
+      sameSite: "strict",
+    });
     dispatch({ type: "SET_USER_TOKEN", payload: token });
   };
 
@@ -67,9 +76,15 @@ export default function AppProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
 
+  // useEffect(() => {
+  //   localStorage.setItem("userToken", JSON.stringify(userToken));
+  // }, [userToken]);
   useEffect(() => {
-    localStorage.setItem("userToken", JSON.stringify(userToken));
-  }, [userToken]);
+    const token = cookies.userToken;
+    if (token) {
+      dispatch({ type: "SET_USER_TOKEN", payload: token });
+    }
+  }, [cookies.userToken]);
 
   useEffect(() => {
     async function getme() {

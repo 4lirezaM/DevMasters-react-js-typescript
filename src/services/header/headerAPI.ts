@@ -38,8 +38,9 @@ export async function fetchTopbarLinks(): Promise<TopBarLinks[]> {
     );
   }
   const data = await response.json();
-  return data;
+  return data as TopBarLinks[];
 }
+
 export async function fetchMenuLinks(): Promise<MenuLinks[]> {
   const response = await fetch(`${BASE_URL}/menus`);
   if (!response.ok) {

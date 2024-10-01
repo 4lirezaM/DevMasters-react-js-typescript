@@ -8,7 +8,7 @@ import {
 
 // Usage:
 function Topbar() {
-  let shuffledArray = [];
+  let shuffledArray: TopBarLinks[] = [];
   const [topbarLinks, setTopbarLinks] = useState<TopBarLinks[]>([]);
   useEffect(() => {
     const fetchData = async () => {

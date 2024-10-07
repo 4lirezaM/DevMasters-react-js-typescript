@@ -33,7 +33,7 @@ function SectionHeader({
           to={to}
           className="flex items-center justify-center py-4 hover:text-sky-500 dark:hover:text-sky-600"
         >
-          <span className="pb-[0.2rem] font-semibold transition-all hover:pr-2">
+          <span className="pb-[0.2rem] font-semibold transition-all duration-300 hover:pr-2">
             {linkText}
           </span>
           <i className="fa fa-angle-right" aria-hidden="true"></i>

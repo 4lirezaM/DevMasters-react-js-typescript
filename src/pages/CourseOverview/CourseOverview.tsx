@@ -42,7 +42,13 @@ function CourseOverview() {
   return (
     <div className="container mx-auto p-1 sm:py-8">
       <Breadcrumbs
-        pathArray={[{ id: 1, title: courseData.categoryID.title, to: "#" }]}
+        pathArray={[
+          {
+            id: 1,
+            title: courseData.categoryID.title,
+            to: `/category-info/${courseData.categoryID.name}`,
+          },
+        ]}
         current={coursename}
       />
       <CourseIntro

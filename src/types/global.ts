@@ -102,3 +102,38 @@ export interface CourseData {
   __v: number;
   _id: string;
 }
+
+export type UserInfo = {
+  courses: [];
+  createdAt: string;
+  email: string;
+  name: string;
+  notifications: Notification[];
+  phone: string;
+  role: "ADMIN" | "USER";
+  updatedAt: string;
+  username: string;
+  __v: number;
+  _id: string;
+};
+export type Notification = {
+  msg: string;
+  _id: string;
+};
+export type Category = {
+  createdAt: string;
+  href: string;
+  title: string;
+  updatedAt: string;
+  __v: number;
+  _id: string;
+  parent?: {
+    createdAt: string;
+    href: string;
+    title: string;
+    updatedAt: string;
+    __v: number;
+    _id: string;
+  };
+};
+export type Menu = Category;

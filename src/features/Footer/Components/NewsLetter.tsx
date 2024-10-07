@@ -42,7 +42,7 @@ function NewsLetter() {
         />
         <input
           type="submit"
-          className="border-2 border-white px-1 transition-transform duration-300 ease-in-out hover:cursor-pointer hover:text-sky-400 dark:border-slate-800 dark:hover:text-sky-600"
+          className="border-2 border-white px-1 transition-all delay-300 duration-500ease-in-out hover:cursor-pointer hover:text-sky-400 dark:border-slate-800 dark:hover:text-sky-600"
           value="Subscribe"
         />
       </form>

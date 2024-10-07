@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register.tsx";
@@ -13,6 +17,15 @@ import AppProvider from "./context/AppContext.tsx";
 import Loading from "./features/Loading/Loading.tsx";
 import CoursePlayer from "./pages/CoursePlayer/CoursePlayer.tsx";
 import NotFound from "./pages/NotFound/NotFound.tsx";
+import Category from "./pages/Category/Category.tsx";
+import AdminHome from "./pages/AdminPanel/AdminHome/AdminHome.tsx";
+import Users from "./pages/AdminPanel/Users/Users.tsx";
+import Menus from "./pages/AdminPanel/Menus/Menus.tsx";
+import AdminContact from "./pages/AdminPanel/AdminContact/AdminContact.tsx";
+import Sessions from "./pages/AdminPanel/Sessions/Sessions.tsx";
+import AdminCategory from "./pages/AdminPanel/AdminCategory/AdminCategory.tsx";
+import AdminCourses from "./pages/AdminPanel/AdminCourses/AdminCourses.tsx";
+import PanelLayout from "./pages/AdminPanel/PanelLayout.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,18 +40,29 @@ const router = createBrowserRouter([
       { path: "/signin", element: <Login /> },
       { path: "/courses", element: <Courses /> },
       { path: "/courseoverview/:coursename", element: <CourseOverview /> },
+      { path: "/category-info/:categoryname", element: <Category /> },
       {
         path: "/courseplayer/:categoryname/:coursename/:sessionid",
         element: <CoursePlayer />,
       },
       { path: "/articles", element: <Articles /> },
       { path: "/articles/:articlename", element: <ArticleView /> },
-      { path: "/articles", element: <Articles /> },
       { path: "/search/:query", element: <Search /> },
     ],
   },
   {
     path: "/panel",
+    element: <PanelLayout />,
+    children: [
+      { index: true, element: <Navigate replace to="home" /> },
+      { path: "home", element: <AdminHome /> },
+      { path: "users", element: <Users /> },
+      { path: "menus", element: <Menus /> },
+      { path: "admincourses", element: <AdminCourses /> },
+      { path: "admincategory", element: <AdminCategory /> },
+      { path: "admincontact", element: <AdminContact /> },
+      { path: "sessions", element: <Sessions /> },
+    ],
   },
 ]);
 

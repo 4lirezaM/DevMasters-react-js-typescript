@@ -1,3 +1,5 @@
+import { UserInfo } from "../../types/global";
+
 const BASE_URL = "http://localhost:4000/v1";
 
 export async function fetchLogIn(
@@ -24,20 +26,6 @@ export async function fetchLogIn(
   const data = await response.json();
   return data;
 }
-
-export type UserInfo = {
-  courses: [];
-  createdAt: string;
-  email: string;
-  name: string;
-  notifications: [];
-  phone: string;
-  role: "ADMIN" | "USER";
-  updatedAt: string;
-  username: string;
-  __v: number;
-  _id: string;
-};
 
 export async function fetchMe(userToken: string): Promise<UserInfo> {
   const res = await fetch(`${BASE_URL}/auth/me`, {

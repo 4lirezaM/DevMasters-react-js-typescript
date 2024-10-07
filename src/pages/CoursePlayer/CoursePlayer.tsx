@@ -15,8 +15,6 @@ function CoursePlayer() {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  console.log(session);
-  console.log(sessions);
 
   useEffect(() => {
     if (!coursename || !categoryname || !sessionid) {
@@ -47,7 +45,7 @@ function CoursePlayer() {
       <Breadcrumbs
         current={"current"}
         pathArray={[
-          { id: 1, title: categoryname, to: "#" },
+          { id: 1, title: categoryname, to: `/category-info/${categoryname}` },
           { id: 2, title: coursename, to: `/courseoverview/${coursename}` },
         ]}
       />

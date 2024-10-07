@@ -21,7 +21,7 @@ function Footer() {
         </section>
         <section className="p-2 sm:col-span-1 md:col-span-1 lg:col-span-1">
           <h2 className="pb-3 text-2xl uppercase">Latest Articles</h2>
-          <ul className="transition-all duration-300 ease-in-out">
+          <ul className="transition-all delay-300 duration-500 ease-in-out">
             <li>
               <FooterLink href="#">
                 📦 How to install the library in Python|Python library

@@ -1,9 +1,10 @@
 import { ReactNode, useEffect } from "react";
 import { useReducer } from "react";
 import { createContext } from "react";
-import { fetchMe, UserInfo } from "../services/auth/Login";
+import { fetchMe } from "../services/auth/Login";
 import getLocalStorageItem from "../utils/getLocalStorageItem";
 import { useCookies } from "react-cookie";
+import { UserInfo } from "../types/global";
 
 // types
 
@@ -15,13 +16,14 @@ interface InitialState {
 
 interface State extends InitialState {
   toggledarkMode: () => void;
-  setUserToken: (token: string) => void;
+  setUserToken: (token: string | null) => void;
   setUserInfo: (data: UserInfo | null) => void;
+  refreshUserInfo: () => void;
 }
 
 type Action =
   | { type: "TOGGLE_DARK_MODE" }
-  | { type: "SET_USER_TOKEN"; payload: string }
+  | { type: "SET_USER_TOKEN"; payload: string | null }
   | { type: "SET_USER_INFO"; payload: UserInfo | null };
 
 // creating context
@@ -58,7 +60,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
   const toggledarkMode = () => {
     dispatch({ type: "TOGGLE_DARK_MODE" });
   };
-  const setUserToken = (token: string) => {
+  const setUserToken = (token: string | null) => {
     setCookie("userToken", token, {
       path: "/",
       expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
@@ -76,15 +78,23 @@ export default function AppProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("userToken", JSON.stringify(userToken));
-  // }, [userToken]);
   useEffect(() => {
     const token = cookies.userToken;
     if (token) {
       dispatch({ type: "SET_USER_TOKEN", payload: token });
     }
   }, [cookies.userToken]);
+
+  const refreshUserInfo = async () => {
+    try {
+      if (!userToken)
+        throw new Error("There is something wrong with userToken");
+      const data = await fetchMe(userToken);
+      setUserInfo(data);
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  };
 
   useEffect(() => {
     async function getme() {
@@ -108,6 +118,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
         toggledarkMode,
         setUserToken,
         setUserInfo,
+        refreshUserInfo,
       }}
     >
       {children}

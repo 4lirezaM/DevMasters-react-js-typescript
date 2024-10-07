@@ -20,7 +20,9 @@ function CourseIntro({ category, name, description }: CourseIntroProps) {
       <div className="md:flex md:basis-1/2 md:flex-col md:justify-between">
         <div>
           <div className="flex items-center justify-end">
-            <div className="badge badge-accent">{category}</div>
+            <Link to={`/category-info/${category}`}>
+              <div className="badge badge-accent">{category}</div>
+            </Link>
           </div>
           <h1 className="text-4xl font-semibold">{name}</h1>
           <p className="line-clamp-[9] lg:line-clamp-[10] max-h-[176px] overflow-hidden lg:text-[17px] xl:line-clamp-none xl:max-h-[270px] xl:text-[20px] xl:leading-6">

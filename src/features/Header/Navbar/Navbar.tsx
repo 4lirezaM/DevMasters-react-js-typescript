@@ -45,8 +45,9 @@ function Navbar() {
           <Button
             classname="hidden md:flex overflow-hidden w-32 truncate "
             type="secondary"
+            to={userInfo.role === "ADMIN" ? "/panel" : ""}
           >
-            {userInfo.username}
+            {userInfo.role === "ADMIN" ? "Admin Panel" : userInfo.username}
           </Button>
         ) : (
           <Button classname="hidden md:flex w-32" to="/signin" type="secondary">
@@ -54,7 +55,10 @@ function Navbar() {
           </Button>
         )}
         {userInfo ? (
-          <Button classname=" md:hidden ">
+          <Button
+            classname=" md:hidden "
+            to={userInfo.role === "ADMIN" ? "/panel" : ""}
+          >
             <i className="fa-solid fa-user fa-xl"></i>
           </Button>
         ) : (

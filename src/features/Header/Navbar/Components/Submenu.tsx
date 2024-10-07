@@ -14,7 +14,10 @@ function Submenu({
     return (
       <div className="dropdown dropdown-hover px-1 py-3">
         <div tabIndex={0} role="button" className="">
-          <Link className="hover:text-sky-600 dark:hover:text-sky-400" to="/">
+          <Link
+            className="hover:text-sky-600 dark:hover:text-sky-400"
+            to={item.href}
+          >
             {item.title}
           </Link>
         </div>
@@ -47,7 +50,7 @@ function Submenu({
           >
             <Link
               className={`hover:text-sky-600 dark:hover:text-sky-400 ${styles.noActiveBg}`}
-              to="/"
+              to={item.href}
             >
               {item.title}
             </Link>

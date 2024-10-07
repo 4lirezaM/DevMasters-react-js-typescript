@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { UserInfo } from "../../../services/auth/Login";
-import { SetState } from "../../../types/global";
+import { SetState, UserInfo } from "../../../types/global";
 import { fetchAddComment } from "../../../services/comments/commentsAPI";
 import { Ratingstar } from "../../../ui/starRating";
 import Swal from "sweetalert2";
@@ -114,7 +113,7 @@ function AddComment({
             <Ratingstar rate={rate} setRate={setRate} size={36} />
 
             <div className="flex items-center justify-end">
-              <button className="mx1 w-[140px] rounded-sm bg-green-500 px-2 py-[6px] text-[17px] text-white hover:bg-green-600">
+              <button className="mx1 w-[140px] rounded-sm border-1 border-green-500 bg-green-500 px-2 py-[6px] text-[17px] text-white hover:border-green-600 hover:bg-green-600">
                 {isLoading ? (
                   <div className="flex items-center justify-center gap-1">
                     <span>Posting</span>

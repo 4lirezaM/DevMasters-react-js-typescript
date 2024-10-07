@@ -31,8 +31,8 @@ function Menu({ menuType }: { menuType: MenuType }) {
           !item.submenus.length ? (
             <li key={item._id}>
               <Link
+                to={item.href}
                 className="block py-3 hover:text-sky-600 dark:hover:text-sky-400"
-                to="/"
               >
                 {item.title}
               </Link>
@@ -47,7 +47,7 @@ function Menu({ menuType }: { menuType: MenuType }) {
     );
   } else if (menuType === "vertical") {
     return (
-      <ul className="menu rounded-box w-56 bg-white dark:bg-slate-900">
+      <ul className="menu w-56 rounded-box bg-white dark:bg-slate-900">
         {menuLinks.map((item) =>
           !item.submenus.length ? (
             <li
@@ -56,7 +56,7 @@ function Menu({ menuType }: { menuType: MenuType }) {
             >
               <Link
                 className="block py-3 hover:bg-white hover:text-sky-600 dark:hover:bg-slate-900 dark:hover:text-sky-400"
-                to="/"
+                to={item.href}
               >
                 {item.title}
               </Link>

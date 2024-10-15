@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router";
-import Sidebar from "../../features/AdminPanel/Layout/Sidebar";
-import Header from "../../features/AdminPanel/Layout/Header";
+import Sidebar from "../../features/Admin/Layout/Sidebar";
+import Header from "../../features/Admin/Layout/Header";
 import { useEffect, useState } from "react";
 import useAppContext from "../../Hooks/useAppContext";
 import Swal from "sweetalert2";

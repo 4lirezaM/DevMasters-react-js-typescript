@@ -1,6 +1,6 @@
 import { useState } from "react";
-import AddCourse from "../../../features/AdminPanel/AdminCourses/AddCourse";
-import CourseDisplay from "../../../features/AdminPanel/AdminCourses/CourseDisplay";
+import AddCourse from "../../../features/Admin/AdminCourses/AddCourse";
+import CourseDisplay from "../../../features/Admin/AdminCourses/CourseDisplay";
 
 function AdminCourses() {
   const [isAddCourseOpen, setIsAddCourseOpen] = useState(false);
@@ -9,7 +9,7 @@ function AdminCourses() {
   }
   return (
     <div>
-      <div className="bg-slate-50 p-1 sm:p-4 dark:bg-slate-800">
+      <div className="min-h-svh bg-slate-50 p-1 sm:p-4 dark:bg-slate-800">
         <div className="flex items-center justify-between">
           <h2 className="py-2 text-2xl font-semibold">
             <span className="mr-1 inline-block h-4 w-4 rounded-sm bg-yellow-400 dark:bg-yellow-500"></span>

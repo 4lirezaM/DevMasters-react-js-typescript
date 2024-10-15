@@ -102,6 +102,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
         if (!userToken)
           throw new Error("there is something wronge with userToken");
         const data = await fetchMe(userToken);
+       
         setUserInfo(data);
       } catch (err) {
         console.error("error:", err);

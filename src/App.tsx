@@ -19,13 +19,14 @@ import CoursePlayer from "./pages/CoursePlayer/CoursePlayer.tsx";
 import NotFound from "./pages/NotFound/NotFound.tsx";
 import Category from "./pages/Category/Category.tsx";
 import AdminHome from "./pages/AdminPanel/AdminHome/AdminHome.tsx";
-import Users from "./pages/AdminPanel/Users/Users.tsx";
-import Menus from "./pages/AdminPanel/Menus/Menus.tsx";
+import AdminUsers from "./pages/AdminPanel/AdminUsers/AdminUsers.tsx";
 import AdminContact from "./pages/AdminPanel/AdminContact/AdminContact.tsx";
-import Sessions from "./pages/AdminPanel/Sessions/Sessions.tsx";
+import AdminSessions from "./pages/AdminPanel/AdminSessions/AdminSessions.tsx";
 import AdminCategory from "./pages/AdminPanel/AdminCategory/AdminCategory.tsx";
 import AdminCourses from "./pages/AdminPanel/AdminCourses/AdminCourses.tsx";
 import PanelLayout from "./pages/AdminPanel/PanelLayout.tsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+import AdminMenus from "./pages/AdminPanel/AdminMenus/AdminMenus.tsx";
 
 const router = createBrowserRouter([
   {
@@ -56,20 +57,24 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate replace to="home" /> },
       { path: "home", element: <AdminHome /> },
-      { path: "users", element: <Users /> },
-      { path: "menus", element: <Menus /> },
+      { path: "users", element: <AdminUsers /> },
+      { path: "adminmenus", element: <AdminMenus /> },
       { path: "admincourses", element: <AdminCourses /> },
       { path: "admincategory", element: <AdminCategory /> },
       { path: "admincontact", element: <AdminContact /> },
-      { path: "sessions", element: <Sessions /> },
+      { path: "adminsessions", element: <AdminSessions /> },
     ],
   },
 ]);
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
     <AppProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </AppProvider>
   );
 }

@@ -18,7 +18,6 @@ export async function fetchCourseData(
   shortName: string,
   token: string | null,
 ): Promise<CourseData> {
-  console.log(typeof token);
   const res = await fetch(`${BASE_URL}/courses/${shortName}`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },

@@ -109,9 +109,9 @@ function Sidebar({
                   : ""
               }`
             }
-            to="/panel/menus"
+            to="/panel/AdminSessions"
           >
-            Menus
+            Sessions
           </NavLink>
         </li>
         <li>
@@ -137,11 +137,12 @@ function Sidebar({
                   : ""
               }`
             }
-            to="/panel/admincategory"
+            to="/panel/adminmenus"
           >
-            Categories
+            Menus
           </NavLink>
         </li>
+
         <li>
           <NavLink
             className={({ isActive }) =>
@@ -151,9 +152,9 @@ function Sidebar({
                   : ""
               }`
             }
-            to="/panel/sessions"
+            to="/panel/admincategory"
           >
-            Sessions
+            Categories
           </NavLink>
         </li>
       </ul>

@@ -1,5 +1,4 @@
 import { Category } from "../../types/global";
-import { removeChildren } from "../../utils/removeChildren";
 
 const BASE_URL = "http://localhost:4000/v1";
 
@@ -13,6 +12,5 @@ export async function getAllCategories(): Promise<Category[]> {
     throw error;
   }
   const data = await response.json();
-  const modifiedData = removeChildren(data);
-  return modifiedData;
+  return data;
 }

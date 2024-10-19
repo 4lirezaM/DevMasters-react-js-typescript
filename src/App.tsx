@@ -27,6 +27,7 @@ import AdminCourses from "./pages/AdminPanel/AdminCourses/AdminCourses.tsx";
 import PanelLayout from "./pages/AdminPanel/PanelLayout.tsx";
 import { QueryClient, QueryClientProvider } from "react-query";
 import AdminMenus from "./pages/AdminPanel/AdminMenus/AdminMenus.tsx";
+import AdminComments from "./pages/AdminPanel/AdminComments/AdminComments.tsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       { path: "/notfound", element: <NotFound /> },
       { path: "/signin", element: <Login /> },
       { path: "/courses", element: <Courses /> },
+      { path: "/articles", element: <Articles /> },
       { path: "/courseoverview/:coursename", element: <CourseOverview /> },
       { path: "/category-info/:categoryname", element: <Category /> },
       {
@@ -57,12 +59,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Navigate replace to="home" /> },
       { path: "home", element: <AdminHome /> },
-      { path: "users", element: <AdminUsers /> },
+      { path: "adminusers", element: <AdminUsers /> },
       { path: "adminmenus", element: <AdminMenus /> },
       { path: "admincourses", element: <AdminCourses /> },
       { path: "admincategory", element: <AdminCategory /> },
       { path: "admincontact", element: <AdminContact /> },
       { path: "adminsessions", element: <AdminSessions /> },
+      { path: "admincomments", element: <AdminComments /> },
     ],
   },
 ]);

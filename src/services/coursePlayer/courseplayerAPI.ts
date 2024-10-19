@@ -1,6 +1,5 @@
+import BASE_URL from "../../config/config";
 import { Session } from "../../types/global";
-
-const BASE_URL = "http://localhost:4000/v1";
 
 export async function fetchCoursePlayer(
   coursename?: string,

@@ -5,6 +5,7 @@ import Menu from "./Menu";
 import Searchinput from "./Searchinput";
 import styles from "./Sidebar.module.css";
 import { SetState } from "../../../../types/global";
+import LogOutButton from "./LogOutButton";
 
 function Sidebar({
   setIsSidebarOpen,
@@ -43,7 +44,8 @@ function Sidebar({
     >
       <div className="flex items-center justify-between border-b border-solid border-b-slate-200 pb-1.5 dark:border-b-slate-950">
         <Logo />
-        <div className="flex">
+        <div className="flex gap-1">
+          <LogOutButton btnType="secondarySquare" />
           <DarkModeButton btnType="secondarySquare" />
           <button className="p-3" onClick={handleClose}>
             <i className="fa fa-xl fa-times" aria-hidden="true"></i>

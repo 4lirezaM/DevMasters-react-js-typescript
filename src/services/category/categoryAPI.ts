@@ -1,5 +1,5 @@
+import BASE_URL from "../../config/config";
 import { CourseCart } from "../../types/global";
-const BASE_URL = "http://localhost:4000/v1";
 
 export async function fetchCoursesByCategory(
   categoryname: string,

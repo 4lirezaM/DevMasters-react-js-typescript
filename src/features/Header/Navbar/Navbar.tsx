@@ -6,6 +6,7 @@ import Sidebar from "./Components/Sidebar.tsx";
 import DarkModeButton from "./Components/DarkModeButton";
 import Button from "../../../ui/Button.tsx";
 import useAppContext from "../../../Hooks/useAppContext.tsx";
+import LogOutButton from "./Components/LogOutButton.tsx";
 
 function Navbar() {
   const { userInfo } = useAppContext();
@@ -35,6 +36,11 @@ function Navbar() {
         </div>
       </div>
       <div className="px-1 py-3 md:flex md:items-center md:justify-end md:gap-2">
+        {userInfo?.role == "USER" && (
+          <div className="hidden md:block">
+            <LogOutButton btnType="secondarySquare" />
+          </div>
+        )}
         <div className="hidden md:block">
           <DarkModeButton btnType="secondarySquare" />
         </div>

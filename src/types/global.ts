@@ -21,6 +21,32 @@ export type CourseCart = {
   _id: string;
 };
 
+export type ArticleCart = {
+  body: string;
+  categoryID: string;
+  cover: string;
+  createdAt: string;
+  creator: {
+    createdAt: string;
+    email: string;
+    name: string;
+    phone: string;
+    profile: string;
+    role: "ADMIN" | "USER";
+    updatedAt: string;
+    username: string;
+    __v: number;
+    _id: string;
+  };
+  description: string;
+  publish: number;
+  shortName: string;
+  title: string;
+  updatedAt: string;
+  __v: number;
+  _id: string;
+};
+
 export interface CategoryID {
   createdAt: string;
   name: string;
@@ -120,7 +146,7 @@ export type Notification = {
   msg: string;
   _id: string;
 };
-export type Category = {
+export type Menu = {
   createdAt: string;
   href: string;
   title: string;
@@ -136,4 +162,3 @@ export type Category = {
     _id: string;
   };
 };
-export type Menu = Category;

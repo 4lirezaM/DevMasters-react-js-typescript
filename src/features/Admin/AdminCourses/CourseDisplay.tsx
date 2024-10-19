@@ -13,6 +13,7 @@ function CourseDisplay() {
     queryKey: ["getCourses"],
     queryFn: () => fetchCourses(userToken),
   });
+  console.log(data);
   if (error) throw error;
   if (isLoading) return <Loading />;
   return (

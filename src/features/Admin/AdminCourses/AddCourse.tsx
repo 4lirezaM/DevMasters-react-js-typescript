@@ -1,9 +1,12 @@
-import { Category, SetState } from "../../../types/global";
+import { SetState } from "../../../types/global";
 import TextInput from "../../../ui/admin/TextInput";
 import LableInput from "../../../ui/admin/LableInput";
 import TextArea from "../../../ui/admin/TextArea";
 import SelectBox from "../../../ui/admin/SelectBox";
-import { getAllCategories } from "../../../services/adminPanel/adminCategoriesAPI";
+import {
+  CategoryItemType,
+  getAllCategories,
+} from "../../../services/adminPanel/adminCategoriesAPI";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { minValidator, requiredValidator } from "../../../validators/rules";
 import { pricePattern } from "../../../validators/regex";
@@ -39,7 +42,7 @@ function AddCourse({ setIsAddCourseOpen, isAddCourseOpen }: AddCourseProps) {
     setIsAddCourseOpen((isAddCourseOpen) => !isAddCourseOpen);
   }
   // get SelectBox Category items in initial render
-  useQuery<Category[]>({
+  useQuery<CategoryItemType[]>({
     queryKey: ["getCategorisForSelctBox"],
     queryFn: () => getAllCategories(),
     onSuccess: (data) => {

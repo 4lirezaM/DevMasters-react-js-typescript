@@ -1,6 +1,6 @@
+import BASE_URL from "../../config/config";
 import { UserInfo } from "../../types/global";
 
-const BASE_URL = "http://localhost:4000/v1";
 
 export async function fetchLogIn(
   userName: string,

@@ -109,7 +109,7 @@ function Sidebar({
                   : ""
               }`
             }
-            to="/panel/AdminSessions"
+            to="/panel/adminsessions"
           >
             Sessions
           </NavLink>
@@ -123,7 +123,7 @@ function Sidebar({
                   : ""
               }`
             }
-            to="/panel/users"
+            to="/panel/adminusers"
           >
             Users
           </NavLink>
@@ -155,6 +155,20 @@ function Sidebar({
             to="/panel/admincategory"
           >
             Categories
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) =>
+              `block px-1 py-2 text-[20px] font-semibold hover:bg-gradient-to-r hover:from-transparent hover:to-sky-500/60 ${
+                isActive
+                  ? "border-r-8 border-solid border-blue-600 bg-gradient-to-r from-transparent to-sky-500/60 dark:border-blue-700 dark:to-sky-500/50"
+                  : ""
+              }`
+            }
+            to="/panel/admincomments"
+          >
+            Comments
           </NavLink>
         </li>
       </ul>

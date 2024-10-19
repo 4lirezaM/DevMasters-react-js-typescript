@@ -1,6 +1,18 @@
 import SectionHeader from "../../ui/SectionHeader";
 
 function LatestArticles() {
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const data = await fetchLatestArticles();
+  //       setCourses(data);
+  //     } catch (error) {
+  //       console.log("topbar fetch error", error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
   return (
     <div className="my-4">
       <div className="container px-[12px] sm:px-2">

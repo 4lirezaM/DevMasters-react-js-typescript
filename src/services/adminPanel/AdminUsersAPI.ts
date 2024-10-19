@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000/v1";
+import BASE_URL from "../../config/config";
 
 export type UserItemTableType = {
   createdAt: string;

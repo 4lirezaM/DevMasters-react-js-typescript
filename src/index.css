@@ -7,10 +7,30 @@ body {
 @tailwind components;
 @tailwind utilities;
 /* tailwind */
+
+.swal2-popup {
+  font-family:
+    "Open Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif !important;
+}
+.swal2-icon ~ * {
+  box-sizing: content-box !important;
+}
+/* sweet alert font family  and extra style  */
 *,
 *::before,
 *::after {
-  box-sizing: border-box !important;
+  box-sizing: border-box;
 }
 /* border box */
 html,
@@ -136,20 +156,4 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-/* sweet alert font family   */
-.swal2-popup {
-  font-family:
-    "Open Sans",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen-Sans,
-    Ubuntu,
-    Cantarell,
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    sans-serif !important;
 }

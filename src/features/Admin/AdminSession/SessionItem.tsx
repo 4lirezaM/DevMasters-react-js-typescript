@@ -43,13 +43,13 @@ function SessionItem({ item, index }: SessionItemProps) {
       }
     });
   }
-
+  console.log(item);
   return (
     <tr className={`${index % 2 !== 0 ? "dark:!bg-slate-900" : " "}`}>
       <th>{++index}</th>
       <td>{item.title}</td>
       <td>{item.time}</td>
-      <td>{item.course.name}</td>
+      <td>{item.course?.name}</td>
 
       <td>
         <button

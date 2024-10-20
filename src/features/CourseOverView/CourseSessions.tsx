@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Session } from "../../types/global";
+import useAppContext from "../../Hooks/useAppContext";
+import Swal from "sweetalert2";
 
 type CourseSessionsProps = {
   sessions: Session[];
@@ -13,6 +15,16 @@ function CourseSessions({
   courseName,
   isUserRegisteredToThisCourse,
 }: CourseSessionsProps) {
+  const { userInfo } = useAppContext();
+  const firstLoginLandler = () => {
+    if (!userInfo || userInfo?.role !== "ADMIN") {
+      Swal.fire({
+        title: "Access Denied",
+        text: "You must sign in first. This section is only accessible to users.",
+        icon: "warning",
+      });
+    }
+  };
   return (
     <div className="bg-slate-50 p-1 sm:px-4 dark:bg-slate-900">
       <h2 className="p-4 py-2 text-2xl font-semibold">
@@ -35,7 +47,14 @@ function CourseSessions({
                   <span className="mr-2 inline-flex aspect-square h-6 items-center justify-center rounded-sm bg-slate-600 text-white group-hover:bg-sky-500 sm:h-8">
                     {++index}
                   </span>
-                  {session.free > 0 || isUserRegisteredToThisCourse ? (
+                  {!userInfo ? (
+                    <span
+                      className="cursor-pointer group-hover:text-sky-500"
+                      onClick={firstLoginLandler}
+                    >
+                      {session.title}
+                    </span>
+                  ) : session.free > 0 || isUserRegisteredToThisCourse ? (
                     <Link
                       to={`/courseplayer/${category}/${courseName}/${session._id}`}
                       className="group-hover:text-sky-500"

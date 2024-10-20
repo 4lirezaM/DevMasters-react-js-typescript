@@ -204,7 +204,7 @@ function CommentItem({ item, index }: CommentItemProps) {
     <tr className={`${index % 2 !== 0 ? "dark:!bg-slate-900" : " "}`}>
       <th>{++index}</th>
       <td>{item.course}</td>
-      <td>{item.creator.name}</td>
+      <td>{item.creator?.name}</td>
       <td>
         <button
           onClick={handleShowContext}

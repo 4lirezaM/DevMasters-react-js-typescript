@@ -58,15 +58,14 @@ function AddMenu({ setIsAddMenuOpen, isAddMenuOpen }: AddMenuProps) {
     {
       onSuccess: () => {
         resetAddMenuForm();
+        queryClient.refetchQueries({ queryKey: ["getAdminMenus"] });
+        queryClient.refetchQueries({ queryKey: ["getMainMenusForSelctBox"] });
         Swal.fire({
           title: "Menu Created!",
           text: "Your Menu has been successfully added to the database.",
           icon: "success",
           showConfirmButton: false,
           timer: 4000,
-        });
-        queryClient.invalidateQueries({
-          queryKey: ["getAdminMenus", "getMainMenusForSelctBox"],
         });
       },
       onError: (error) => {

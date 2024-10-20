@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 type BtnType = { btnType: "secondarySquare" | "secondary" };
 
 function LogOutButton({ btnType }: BtnType) {
-  const { setUserInfo, setUserToken } = useAppContext();
+  const { setUserInfo, setUserToken, userInfo } = useAppContext();
   const navigate = useNavigate();
 
   function handleLogout() {
@@ -30,6 +30,7 @@ function LogOutButton({ btnType }: BtnType) {
       }
     });
   }
+  if (!userInfo) return undefined;
   return (
     <div
       className="tooltip before:dark:bg-slate-50 before:dark:text-black"

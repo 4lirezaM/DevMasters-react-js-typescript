@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Breadcrumbs from "../../ui/Breadcrumbs";
 import { useEffect, useState } from "react";
 import { fetchCoursePlayer } from "../../services/coursePlayer/courseplayerAPI";
@@ -7,15 +7,27 @@ import { Session } from "../../types/global";
 import NotFound from "../NotFound/NotFound";
 import Loading from "../../features/Loading/Loading";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function CoursePlayer() {
   const { coursename, categoryname, sessionid } = useParams();
-  const { userToken } = useAppContext();
+  const { userToken, userInfo } = useAppContext();
   const [session, setSession] = useState<Session | null>(null);
   const [sessions, setSessions] = useState<Session[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!userInfo) {
+      navigate("/");
+      Swal.fire({
+        title: "Access Denied",
+        text: "You must sign in first. This section is only accessible to users.",
+        icon: "warning",
+      });
+    }
+  }, [userInfo]);
   useEffect(() => {
     if (!coursename || !categoryname || !sessionid) {
       setError("Invalid URL parameters");
